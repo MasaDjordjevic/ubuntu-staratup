@@ -1,0 +1,60 @@
+# Configuration file for libinput-gestures.
+#
+# The default configuration file exists at /etc/libinput-gestures.conf
+# but a user can create a personal custom configuration file at
+# ~/.config/libinput-gestures.conf.
+#
+
+# libinput-gestures-setup restart
+
+
+# Move to next workspace (works for GNOME/KDE/etc on Wayland and Xorg)
+#gesture swipe up	_internal ws_up
+#gesture swipe up	xdotool key super+Page_Down
+
+# Move to prev workspace (works for GNOME/KDE/etc on Wayland and Xorg)
+#gesture swipe down	_internal ws_down
+#gesture swipe down	xdotool key super+Page_Up
+
+# Browser go forward (works only for Xorg, and Xwayland clients)
+# gesture swipe left_up	xdotool key alt+Right
+
+# Browser go back (works only for Xorg, and Xwayland clients)
+# gesture swipe right_up	xdotool key alt+Left
+
+
+# Jump to next open browser tab
+ gesture swipe right_up 4 xdotool key control+Tab
+#
+# Jump to previous open browser tab
+ gesture swipe left_down 4 xdotool key control+shift+Tab
+#
+# Close current browser tab
+#gesture swipe left_down xdotool key control+w
+#
+# Reopen and jump to last closed browser tab
+#gesture swipe right_down xdotool key control+shift+t
+
+
+ gesture swipe up 3	xdotool key "Ctrl+Super_L+Up"
+
+ gesture swipe down 3 xdotool getactivewindow windowminimize
+
+ gesture swipe left	xdotool key ctrl+alt+Left
+ gesture swipe right	xdotool key ctrl+alt+Right
+
+#gesture swipe left 4	xdotool key "Ctrl+Super_L+Left"
+#gesture swipe right 4	xdotool key "Ctrl+Super_L+Right"
+ gesture swipe right 4	xdotool key alt+Tab
+
+# GNOME SHELL open/close overview (works for GNOME on Wayland and Xorg)
+gesture pinch in dbus-send --session --type=method_call --dest=org.gnome.Shell /org/gnome/Shell org.gnome.Shell.Eval string:'Main.overview.toggle();'
+
+gesture pinch out dbus-send --session --type=method_call --dest=org.gnome.Shell /org/gnome/Shell org.gnome.Shell.Eval string:'Main.overview.toggle();'
+
+# Optional extended pinch gestures:
+# gesture pinch clockwise <whatever command>
+# gesture pinch anticlockwise <whatever command>
+
+
+
